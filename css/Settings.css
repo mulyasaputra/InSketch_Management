@@ -1,0 +1,325 @@
+#mainSection {
+  background-color: var(--sidebar-color);
+  border-radius: 6px;
+  padding: 30px 25px;
+}
+/* Topbar Setting */
+/* ------[Topbar Profile]------ */
+.profile {
+  gap: 13px;
+}
+.profile h2 {
+  background-color: #695cfe;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  padding: 6px 0;
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.topBar {
+  justify-content: space-between;
+}
+/* ------[Topbar Button]------ */
+.buttonAction {
+  gap: 7px;
+}
+.bx-icon {
+  background-color: #ced4da;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--secondary);
+}
+.bx-icon:nth-child(2) {
+  background-color: var(--danger);
+  color: var(--white);
+}
+.bx-icon:nth-child(2):hover {
+  background-color: #e02d1b;
+  border-color: #d52a1a;
+}
+.bx-icon.active {
+  background-color: rgba(105, 92, 254, 0.8);
+  color: var(--white);
+}
+.bx-icon.active:hover {
+  background-color: rgba(105, 92, 254, 1);
+}
+
+/* Info Setting */
+form {
+  border: 1px solid #ced4da;
+  padding: 20px;
+  border-radius: 8px;
+  width: fit-content;
+  background-color: #fff;
+}
+form ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 25rem 25rem;
+  column-gap: 20px;
+  width: fit-content;
+}
+.Fieldset {
+  margin: 16px 0;
+}
+.fileds {
+  position: relative;
+}
+.Fs-H {
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  font-size: 13px;
+  color: #707070;
+  background-color: #fff;
+  padding: 0 6px;
+}
+form ul input {
+  padding: 10px 10px;
+  height: 39px;
+  font-size: 1.1rem;
+  width: 25rem;
+}
+input:disabled {
+  background: var(--white);
+}
+form button {
+  margin-top: 14px;
+  width: 100%;
+}
+
+/* Noty Setting */
+/* ------[Nity Text]------ */
+.mainaps {
+  margin-top: 40px;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 25rem;
+}
+.noty p span {
+  color: #695cfe;
+}
+/* ------[Noty Suport]------ */
+.suport {
+  display: none;
+}
+
+/* Primary setting */
+/* ------[PS Darkmode]------ */
+.primarySetting > .flex {
+  gap: 30px;
+}
+.darkMode {
+  margin: 20px 0;
+  gap: 20px;
+  background-color: var(--primary-color-light);
+  border-radius: 9px;
+  padding: 10px 20px;
+  width: 23rem;
+  position: relative;
+  cursor: pointer;
+}
+.sun-moon {
+  font-size: 1.4rem;
+  height: 20px;
+  width: 20px;
+}
+.darkMode .sun-moon i {
+  position: absolute;
+}
+.darkMode .sun-moon i.sun {
+  opacity: 0;
+}
+.dark#thames .sun-moon i.sun {
+  opacity: 1;
+}
+.dark#thames .sun-moon i.moon {
+  opacity: 0;
+}
+.label > h5 {
+  font-size: 16px;
+}
+.label > p {
+  font-size: 14px;
+}
+.darkMode .toggle-switch2 {
+  right: 8px;
+  position: absolute;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+.darkMode .toggle-switch2 .switch2 {
+  position: relative;
+  height: 22px;
+  width: 40px;
+  border-radius: 25px;
+  background-color: var(--toggle-color);
+  transition: var(--tran-05);
+}
+.darkMode .toggle-switch2 .switch2::before {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  top: 50%;
+  left: 5px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background-color: var(--sidebar-color);
+  transition: var(--tran-04);
+}
+.dark#thames .toggle-switch2 .switch2::before {
+  left: 21px;
+}
+
+/* Secondary setting */
+/* ------[SS Delet Data]------ */
+.years {
+  margin-bottom: 13px;
+}
+:is(.month, .years) button {
+  width: 8rem;
+  margin: 5px 2px;
+}
+
+/* -------- Floating Section -------- */
+.cekPassword {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: calc(100% / 2 - 150px);
+}
+.cekPassword form {
+  display: flex;
+  flex-direction: column;
+}
+
+.cekPassword form label {
+  margin-bottom: 20px;
+}
+.cekPassword form input {
+  padding: 10px;
+}
+
+.cekPassword.true {
+  display: block;
+}
+
+/*======== responsif section ========*/
+@media (max-width: 575.98px) {
+}
+@media (max-width: 1030px) {
+  /* ------[Nity Text]------ */
+  .mainaps {
+    gap: 20px;
+    grid-template-columns: 1fr;
+  }
+  /* ------[Noty Suport]------ */
+  .suport {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #f3f3f3;
+  }
+  /* Info Setting */
+  form,
+  .Fieldset input {
+    width: 100%;
+  }
+  form ul {
+    grid-template-columns: 100%;
+    column-gap: 15px;
+    width: 100%;
+  }
+  /* ------[PS Darkmode]------ */
+  .darkMode {
+    width: 50%;
+  }
+  /* ------[SS Delet Data]------ */
+  .years {
+    margin-bottom: 13px;
+  }
+  :is(.month, .years) button {
+    width: 8rem;
+    margin: 5px 2px;
+  }
+}
+@media (max-width: 753px) {
+  /* ------[PS Darkmode]------ */
+  .primarySetting > .flex {
+    gap: 10px;
+  }
+  .primarySetting .flex .darkMode:nth-child(1) {
+    width: 100%;
+  }
+  .primarySetting .flex .darkMode:nth-child(2) {
+    background-color: #d52a1a;
+    width: 10rem;
+    height: 70px;
+    justify-content: center;
+  }
+  .primarySetting .flex .darkMode:nth-child(2) :where(.label, .toggle-switch2, .sun-moon) {
+    display: none;
+  }
+}
+@media (max-width: 713px) {
+  /* ------[SS Delet Data]------ */
+  .years {
+    margin-bottom: 13px;
+  }
+  .month button {
+    width: calc(100% / 3 - 7px);
+    margin: 5px 2px;
+  }
+  .years button {
+    width: calc(100% / 2 - 6.5px);
+    margin: 5px 2px;
+  }
+}
+@media (max-width: 497px) {
+  .topBar {
+    flex-direction: column;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  /* ------[PS Darkmode]------ */
+  .primarySetting .flex .darkMode {
+    height: 70px;
+  }
+  .primarySetting .flex .darkMode:nth-child(1) .label .textMode {
+    display: none;
+  }
+}
+@media (max-width: 412px) {
+  /* ------[PS Darkmode]------ */
+  .primarySetting .flex .darkMode:nth-child(1) :where(.sun-moon, .label .textMode) {
+    display: none;
+  }
+  /* ------[SS Delet Data]------ */
+  :is(.month, .years) button {
+    width: calc(100% / 2 - 6.5px);
+    margin: 5px 2px;
+  }
+}
+@media (max-width: 412px) {
+  /* ------[PS Darkmode]------ */
+  .primarySetting .flex .darkMode:nth-child(1) :where(.sun-moon, .label .textMode) {
+    display: inline !important;
+  }
+  .primarySetting .flex .darkMode:nth-child(1) :where(.sun-moon, .label) {
+    display: none;
+  }
+}

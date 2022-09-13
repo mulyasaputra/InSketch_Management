@@ -1,0 +1,45 @@
+[type="date"] {
+  background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+label {
+  display: block;
+}
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  width: 190px;
+}
+#addBaance,
+#addActivity {
+  justify-content: center;
+  height: 100%;
+}
+#form-add {
+  background-color: aliceblue;
+  width: fit-content;
+  padding: 20px;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+  border-radius: 6px;
+}
+#form-add div input {
+  width: 400px;
+  height: 35px;
+}
+#form-add div.activities input {
+  height: 50px;
+  font-size: 1.2rem;
+}
+#form-add button {
+  width: 100%;
+  margin-top: 10px;
+}

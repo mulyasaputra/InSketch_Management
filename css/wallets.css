@@ -1,0 +1,458 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,600&display=swap");
+
+.mainBody {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+.masterCard * {
+  font-family: "Montserrat", sans-serif !important;
+}
+.masterCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 50%;
+  border-radius: 15px;
+  --width-left: 30px;
+  --height-top: 40px;
+  z-index: 2;
+  overflow: hidden;
+  backdrop-filter: blur(100px);
+}
+.masterCard::before {
+  position: absolute;
+  content: url(https://static.vecteezy.com/system/resources/previews/002/189/703/non_2x/abstact-minimalist-fluid-green-background-free-vector.jpg);
+  width: 100%;
+  height: 100%;
+  filter: blur(8px);
+  left: 0;
+  top: 0;
+  z-index: -2;
+}
+.svgBackground {
+  backdrop-filter: blur(7px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  fill: #f5cdd1;
+}
+.svgBackground svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.saldoBank {
+  align-items: flex-start;
+  position: absolute;
+  left: var(--width-left);
+  top: var(--height-top);
+  width: calc(100% - (var(--width-left) * 2));
+  justify-content: space-between;
+}
+.saldoBank .a span {
+  font-size: 14px;
+  font-weight: bold;
+}
+.saldoBank .a h3 {
+  font-size: 2rem;
+}
+.saldoBank .b span {
+  position: relative;
+  --fill-object: 50px;
+  display: block;
+  width: var(--fill-object);
+  height: var(--fill-object);
+  border-radius: 100%;
+}
+.saldoBank .b span:first-child {
+  background-color: #eb001b;
+  left: 14px;
+}
+.saldoBank .b span:last-child {
+  background-color: rgba(253, 163, 27, 0.808);
+}
+.masterCard .svg {
+  --fill-object: 120px;
+  left: var(--width-left);
+  bottom: 80px;
+  position: absolute;
+}
+.masterCard .svg svg {
+  width: var(--fill-object);
+  height: var(--fill-object);
+  fill: #ffd700;
+}
+.numberUnique {
+  font-weight: bold;
+  position: absolute;
+  bottom: var(--height-top);
+  left: var(--width-left);
+  width: calc(100% - (var(--width-left) * 2));
+  font-size: 1.3em;
+}
+.numberUnique span:nth-child(2) {
+  display: block;
+  width: 50px;
+}
+.tabLeft {
+  height: 100%;
+  width: 100%;
+  background-color: #22222a;
+  display: grid;
+  place-items: center;
+  font-size: 10rem;
+  border-radius: 15px;
+}
+.recent {
+  border-radius: 15px;
+  overflow: hidden;
+}
+/* Tabel History */
+#history {
+  margin-top: 25px;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--sidebar-color);
+  background-clip: border-box;
+  border: 1px solid var(--primary-color-light);
+  border-radius: 0.35rem;
+}
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: var(--primary-color-light);
+  border-bottom: 1px solid var(--primary-color-light);
+}
+.card-header:first-child {
+  border-radius: calc(0.35rem - 1px) calc(0.35rem - 1px) 0 0;
+}
+.card-header-tabs {
+  margin-right: -0.625rem;
+  margin-bottom: -0.75rem;
+  margin-left: -0.625rem;
+  border-bottom: 0;
+}
+.card-header-pills {
+  margin-right: -0.625rem;
+  margin-left: -0.625rem;
+}
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+thead tr th,
+tbody tr td:first-child {
+  text-align: center;
+}
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #e3e6f0;
+}
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid var(--border-table);
+}
+.table tbody + tbody {
+  border-top: 2px solid #e3e6f0;
+}
+.table-sm td,
+.table-sm th {
+  padding: 0.3rem;
+}
+.table-bordered {
+  border: 1px solid #e3e6f0;
+}
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid var(--border-table);
+}
+.table-bordered thead td,
+.table-bordered thead th {
+  border-bottom-width: 2px;
+}
+
+/* Responsif */
+@media (max-width: 1801px) {
+  .masterCard .svg {
+    bottom: 48px;
+  }
+}
+@media (max-width: 1593px) {
+  .saldoBank .a h3 {
+    font-size: 1.5rem;
+  }
+  .masterCard .svg {
+    --fill-object: 100px;
+    bottom: 45px;
+  }
+}
+@media (max-width: 1279px) {
+  .mainBody {
+    grid-template-columns: 1.6fr 1fr;
+  }
+  /* Grid area */
+  .cardInfo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .tabLeft {
+    grid-column: 1;
+    grid-row: 2;
+    grid-column-end: span 2;
+  }
+  .recent {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .saldoBank .a span {
+    font-size: 11px;
+  }
+  .saldoBank .b span {
+    --fill-object: 40px;
+  }
+  .masterCard .svg {
+    bottom: 50px;
+  }
+  .numberUnique {
+    font-size: 1.1em;
+  }
+  .numberUnique span:nth-child(2) {
+    width: 40px;
+  }
+  .tabLeft {
+    display: none;
+  }
+}
+@media (max-width: 1045px) {
+  .masterCard {
+    --width-left: 17px;
+    --height-top: 20px;
+  }
+  .saldoBank .a span {
+    font-size: 11px;
+  }
+  .saldoBank .a h3 {
+    font-size: 1.3rem;
+  }
+  .saldoBank .b span {
+    --fill-object: 30px;
+  }
+  .saldoBank .b span:first-child {
+    left: 10px;
+  }
+  .masterCard .svg {
+    --fill-object: 80px;
+    bottom: 30px;
+  }
+  .numberUnique {
+    font-size: 0.8em;
+  }
+  .numberUnique span:nth-child(2) {
+    width: 20px;
+  }
+}
+@media (max-width: 924px) {
+  .mainBody {
+    display: block;
+  }
+  /* Grid area */
+  .cardInfo,
+  .tabLeft,
+  .recent {
+    margin: 20px 0;
+  }
+  .numberUnique {
+    font-size: 1.3em;
+  }
+  .saldoBank .a span {
+    font-size: 19px;
+  }
+  .saldoBank .a h3 {
+    font-size: 1.7rem;
+  }
+  .masterCard .svg {
+    --fill-object: 152px;
+    bottom: 31px;
+  }
+  .masterCard {
+    --width-left: 43px;
+    --height-top: 32px;
+  }
+}
+@media (max-width: 811px) {
+  .masterCard {
+    width: 100%;
+    padding-top: 50%;
+    --width-left: 38px;
+    --height-top: 39px;
+  }
+  .saldoBank .a span {
+    font-size: 18px;
+  }
+  .saldoBank .a h3 {
+    font-size: 1.7rem;
+  }
+  .saldoBank .b span {
+    --fill-object: 30px;
+  }
+  .saldoBank .b span:first-child {
+    left: 10px;
+  }
+  .masterCard .svg {
+    --fill-object: 132px;
+    bottom: 35px;
+  }
+  .numberUnique {
+    font-size: 1.3em;
+  }
+  .numberUnique span:nth-child(2) {
+    width: 20px;
+  }
+  .home.close .masterCard .svg {
+    --fill-object: 86px;
+    bottom: 24px;
+  }
+  .home.close .masterCard {
+    --width-left: 22px;
+    --height-top: 22px;
+  }
+}
+@media (max-width: 725px) {
+  .mainBody {
+    display: block;
+  }
+  /* Grid area */
+  .cardInfo,
+  .tabLeft,
+  .recent {
+    margin: 20px 0;
+  }
+  .masterCard {
+    --width-left: 30px;
+    --height-top: 40px;
+  }
+  .saldoBank .a span {
+    font-size: 14px;
+  }
+  .saldoBank .a h3 {
+    font-size: 2rem;
+  }
+  .saldoBank .b span {
+    --fill-object: 46px;
+  }
+  .saldoBank .b span:first-child {
+    left: 14px;
+  }
+  .masterCard .svg {
+    --fill-object: 120px;
+    bottom: 60px;
+  }
+  .numberUnique span:nth-child(2) {
+    width: 15px;
+  }
+}
+@media (max-width: 643px) {
+  .masterCard .svg {
+    --fill-object: 110px;
+    bottom: 50px;
+  }
+  .home.close .masterCard {
+    padding-top: 60%;
+  }
+  .home.close .masterCard .svg {
+    --fill-object: 86px;
+    bottom: 24px;
+  }
+  .home.close .masterCard {
+    --width-left: 22px;
+    --height-top: 22px;
+  }
+  .home.close .saldoBank .a span {
+    font-size: 12px;
+  }
+  .home.close .saldoBank .a h3 {
+    font-size: 1.5rem;
+  }
+  .home.close .numberUnique {
+    font-size: 1em;
+  }
+}
+@media screen and (max-width: 457px) {
+  .masterCard {
+    border-radius: 12px;
+    --width-left: 20px;
+    --height-top: 20px;
+  }
+  .saldoBank .a span {
+    font-size: 11px;
+  }
+  .saldoBank .a h3 {
+    font-size: 1.3rem;
+  }
+  .saldoBank .b span {
+    --fill-object: 30px;
+  }
+  .masterCard .svg {
+    --fill-object: 90px;
+    bottom: 30px;
+  }
+}
+@media screen and (max-width: 367px) {
+  .masterCard {
+    border-radius: 10px;
+  }
+  .saldoBank .a span {
+    font-size: 9px;
+  }
+  .saldoBank .a h3 {
+    font-size: 1.2rem;
+  }
+  .saldoBank .b span {
+    --fill-object: 24px;
+  }
+  .saldoBank .b span:first-child {
+    left: 10px;
+  }
+  .masterCard .svg {
+    --fill-object: 70px;
+    bottom: 30px;
+  }
+  .tabLeft,
+  .recent {
+    display: none;
+  }
+  .numberUnique {
+    font-weight: normal;
+    font-size: 0.7em;
+  }
+}
+@media (max-width: 340px) {
+  .home {
+    left: 0 !important;
+    width: 100% !important;
+    padding: 0 0 0 15px !important;
+  }
+}
+@media (max-width: 280px) {
+  .mainBody {
+    display: none;
+  }
+}
