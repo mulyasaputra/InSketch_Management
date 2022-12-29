@@ -1,14 +1,6 @@
 <?php 
 // SELECT * FROM table WHERE x=x AND y=y AND z=z
 $resultWallet = query("SELECT * FROM finance WHERE user = '$userActive' AND MONTH(date) = '$month' ORDER BY finance . date DESC");
-
-if(isset($_POST["inputMoney"])){
-  if(inputMoney($_POST) > 0 ){
-    echo "<script> alert('berhasil');</script>";
-  } else {
-    echo mysqli_error($conn);
-  }
-}
 $nextyear  = date('Y', strtotime("+1 year"));
 $awal  = date_create($nextyear.'-01-01');
 $akhir = date_create();

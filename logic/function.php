@@ -86,7 +86,6 @@ function adddataTabel($data){
     $month = date("F", mktime(0, 0, 0, substr($date,5,2), 10));
     $year = substr($date,0,4);
     $user = $userActive;
-    // $resultActivity = preg_replace("/[^a-zA-Z0-9 ]/", "", $activity);
 
     // Tambahkan user baru ke data base
     mysqli_query($conn, "INSERT INTO expenditure VALUE('', '$date', '$activity', '$nominal', '$month', '$year','$user')");
@@ -102,23 +101,9 @@ function inputMoney($data){
     $activity = htmlspecialchars($_POST["activity"]);
     $date = htmlspecialchars($_POST["date"]);
 
-
     mysqli_query($conn, "INSERT INTO finance VALUE('', '$user', '$activity', '$date', '$money')");
     return mysqli_affected_rows($conn);
 
-}
-
-// Section add finance
-function spendsaving($data){
-    global $conn;
-    global $userActive;
-    $money = preg_replace("/[^0-9 ]/", "", $_POST["nominal"]);
-    $user = $userActive;
-    $date = htmlspecialchars($_POST["date"]);
-
-
-    mysqli_query($conn, "INSERT INTO savings_out VALUE('', '$user', '$money', '$date')");
-    return mysqli_affected_rows($conn);
 }
 
 // Section Update Data Tabel
@@ -151,6 +136,31 @@ function updateProfile($data){
 
     // Tambahkan user baru ke data base
     mysqli_query($conn, "UPDATE users SET email = '$email', name = '$name', contact ='$contact', location = '$location' , Instansi = '$instansi' WHERE users.username = '$track'");
+    return mysqli_affected_rows($conn);
+}
+
+// Income activity
+function incomeSave($data){
+   global $conn;
+   global $userActive;
+   $user = $userActive;
+   $activity = htmlspecialchars($_POST["activity"]);
+   $date = htmlspecialchars($_POST["date"]);
+   $nominal = preg_replace("/[^0-9,()'' ]/", "", $_POST["nominal"]);
+
+   mysqli_query($conn, "INSERT INTO savings VALUE('', '$user', '$activity','$nominal', '$date')");
+   return mysqli_affected_rows($conn);
+}
+
+// Spending activity
+function spendsaving($data){
+    global $conn;
+    global $userActive;
+    $money = preg_replace("/[^0-9 ]/", "", $_POST["nominal"]);
+    $user = $userActive;
+    $date = htmlspecialchars($_POST["date"]);
+
+    mysqli_query($conn, "INSERT INTO savings_out VALUE('', '$user', '$money', '$date')");
     return mysqli_affected_rows($conn);
 }
 ?>

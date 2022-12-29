@@ -20,3 +20,12 @@ function formatRupiah(angka, prefix) {
   rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
   return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
 }
+
+// let savings = document.querySelector("#savings");
+// savings.addEventListener("change", function () {
+//   if (this.checked) {
+//     this.value = "checked";
+//   } else {
+//     this.value = "off";
+//   }
+// });

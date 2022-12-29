@@ -11,14 +11,14 @@ sign_in_btn.addEventListener("click", () => {
 });
 
 // popup over balance
-// const popup = document.querySelector("#popup"),
-//   progres = document.querySelector(".progres"),
-//   tombola = document.querySelector(".tombola");
+const popup = document.querySelector("#popup"),
+  progres = document.querySelector(".progres"),
+  tombola = document.querySelector(".tombola");
 
-// setTimeout(() => {
-//   popup.classList.add("active");
-//   progres.classList.add("active");
-//   setTimeout(() => {
-//     popup.classList.remove("active");
-//   }, 5000);
-// }, 300);
+setTimeout(() => {
+  popup.classList.add("active");
+  progres.classList.add("active");
+  setTimeout(() => {
+    popup.classList.remove("active");
+  }, 5000);
+}, 300);

@@ -29,5 +29,14 @@ if(isset($_GET["id"])){
         echo "<script> alert('Dada gagal di hapus');
         document.location.href = '../?url=savings';</script>";
     }
+} elseif (isset($_GET["fbIncome"])){
+    $fbIncome = $_GET["fbIncome"];
+    if ( delete($fbIncome, 'savings') > 0 ){
+        echo "<script> alert('Data berhasil di hapus');
+        document.location.href = '../?url=savings';</script>";
+    } else {
+        echo "<script> alert('Dada gagal di hapus');
+        document.location.href = '../?url=savings';</script>";
+    }
 }
 ?>

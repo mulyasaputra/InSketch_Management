@@ -11,6 +11,10 @@ function resultData($user, $th, $table){
 function saving($user, $th, $table) {
     return SUM("SELECT SUM(nominal) AS total FROM $table WHERE user = '$user' AND YEAR(date) ='$th'")['total'];
 };
+function financialBackup($user, $table){
+  return SUM("SELECT SUM(nominal) AS total FROM $table WHERE user = '$user'")['total'];
+}
+$financialBackup = financialBackup($userActive, "savings") - financialBackup($userActive, "savings_out");
 $incomeResult = resultData($userActive, $th, "savings");
 $spendingResult = resultData($userActive, $th, "savings_out");
 ?>
@@ -30,7 +34,7 @@ $spendingResult = resultData($userActive, $th, "savings_out");
   <div class="container flex shadow" style="--color-thames: #e74a3b">
     <h5>Total savings</h5>
     <div class="box-desk flex">
-      <span>Rp. <?= toCurrency(290000,0); ?></span>
+      <span>Rp. <?= toCurrency($financialBackup,0); ?></span>
       <i class="box-icon bx bx-shield-alt-2"></i>
     </div>
   </div>
@@ -64,6 +68,7 @@ $spendingResult = resultData($userActive, $th, "savings_out");
                             <th class="header-td2">Date</th>
                             <th class="header-td3">Activities</th>
                             <th class="header-td4">Nominal</th>
+                            <th class="header-td5">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,6 +79,11 @@ $spendingResult = resultData($userActive, $th, "savings_out");
                             <td style="vertical-align: middle;"><?= $row["date"]; ?></td>
                             <td style="vertical-align: middle;"><?= $row["activities"]; ?></td>
                             <td style="vertical-align: middle;">Rp. <?= toCurrency($row["nominal"],2); ?></td>
+                            <td style="text-align: center;">
+                              <a href="pages/delete.php?fbIncome=<?= $row["id"]; ?>">
+                                <button class="btn btn-danger delete"><i class="bx bx-trash"></i></button>
+                              </a>
+                            </td>
                         </tr>
                         <?php $i++ ?>
                         <?php endforeach ?>
@@ -94,10 +104,10 @@ $spendingResult = resultData($userActive, $th, "savings_out");
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th class="header-td1">No</th>
-                            <th class="header-td2">Date</th>
-                            <th class="header-td3">Nominal</th>
-                            <th>Action</th>
+                          <th class="header-td1">No</th>
+                          <th class="header-td2">Date</th>
+                          <th class="header-td3">Nominal</th>
+                          <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -107,10 +117,10 @@ $spendingResult = resultData($userActive, $th, "savings_out");
                                 <td style="vertical-align: middle;"><?= $i; ?></td>
                                 <td style="vertical-align: middle;"><?= $row["date"]; ?></td>
                                 <td style="vertical-align: middle;">Rp. <?= toCurrency($row["nominal"],2); ?></td>
-                                <td class="flex" style="justify-content: center; padding:0;height: 50px;">
-                                    <a href="pages/delete.php?spend=<?= $row["id"]; ?>">
-                                      <button class="btn btn-danger delete"><i class="bx bx-trash"></i></button>
-                                    </a>
+                                <td style="text-align: center; padding: 0;height: 50px;">
+                                  <a href="pages/delete.php?spend=<?= $row["id"]; ?>">
+                                    <button class="btn btn-danger delete"><i class="bx bx-trash"></i></button>
+                                  </a>
                                 </td>
                             </tr>
                         <?php $i++ ?>

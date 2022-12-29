@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2022 at 03:42 AM
+-- Generation Time: Dec 29, 2022 at 04:01 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -81,6 +81,19 @@ CREATE TABLE `savings` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `savings_out`
+--
+
+CREATE TABLE `savings_out` (
+  `id` int(11) NOT NULL,
+  `user` varchar(125) NOT NULL,
+  `nominal` text NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -125,6 +138,12 @@ ALTER TABLE `savings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `savings_out`
+--
+ALTER TABLE `savings_out`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -156,6 +175,12 @@ ALTER TABLE `record`
 -- AUTO_INCREMENT for table `savings`
 --
 ALTER TABLE `savings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `savings_out`
+--
+ALTER TABLE `savings_out`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

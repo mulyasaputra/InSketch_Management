@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body,
 input {
   font-family: "Poppins", sans-serif;
@@ -400,7 +399,7 @@ form.sign-in-form {
 }
 
 /* Popup over balance */
-/* #popup {
+#popup {
   position: absolute;
   z-index: 999;
   bottom: 20px;
@@ -414,9 +413,11 @@ form.sign-in-form {
   transform: translateX(calc(100% + 20px));
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
   overflow: hidden;
+  display: none;
 }
 #popup.active {
   transform: translateX(0%);
+  display: block;
 }
 #popup .progres {
   position: absolute;
@@ -442,4 +443,4 @@ form.sign-in-form {
   100% {
     right: 100%;
   }
-} */
+}

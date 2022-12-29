@@ -50,6 +50,11 @@ if (isset($_GET['url'])){
         $spendsaving = "activeBtn";
         $title = "Spending activity";
         break;
+
+        case 'insaving': $index = 'pages/spendsaving.php';
+        $insaving = "activeBtn";
+        $title = "Spending activity edit";
+        break;
     }
 } else {
     header("Location: ?url=dashboard");

@@ -150,10 +150,13 @@ if(isset($_POST["register"])){
         </div>
       </div>
     </div>
-    <div id="popup" class="active">
-      <p>Username & Password salah</p>
-      <div class="progres" class="active"></div>
-    </div>
+    <?php if($error == true) : ?>
+      <div id="popup">
+        <p>Username & Password salah</p>
+        <div class="progres"></div>
+      </div>
+    <?php endif; ?>
     <script src="logic/auth.js"></script>
   </body>
 </html>
+

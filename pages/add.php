@@ -2,6 +2,12 @@
 <?php 
 // Add Data
 if(isset($_POST["addButton"])){
+  // checkbox
+  if(isset($_POST['savings'])){
+    incomeSave($_POST);
+  }
+
+  // // menambah data
   if(adddataTabel($_POST) > 0 ){
     echo "<script> alert('berhasil');
           document.location.href = '?url=activities';</script>";
@@ -66,6 +72,10 @@ if(isset($_POST["editButton"])){
     <div class="nominal">
       <label for="nominal">Nominal</label>
       <input type="text" name="nominal" id="nominal" required/>
+    </div>
+    <div class="savings">
+      <input type="checkbox" name="savings" id="savings">
+      <label for="savings">Put it in savings</label>
     </div>
     <button type="submit" name="addButton" class="btn btn-primary">Add Data</button>
   </form>

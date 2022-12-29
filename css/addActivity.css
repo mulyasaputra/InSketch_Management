@@ -38,7 +38,7 @@ input {
 #form-add div {
   width: 100%;
 }
-#form-add div input {
+#form-add div:nth-child(-n + 4) input {
   width: 100%;
   height: 35px;
 }
@@ -49,4 +49,13 @@ input {
 #form-add button {
   width: 100%;
   margin-top: 10px;
+}
+
+.savings {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.savings input {
+  width: 20px;
 }
