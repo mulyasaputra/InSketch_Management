@@ -6,6 +6,9 @@
   margin-bottom: 24px;
   gap: 20px;
 }
+.cardInfo {
+  color: #fff;
+}
 .masterCard * {
   font-family: "Montserrat", sans-serif !important;
 }

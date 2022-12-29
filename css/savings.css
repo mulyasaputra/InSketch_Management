@@ -1,0 +1,127 @@
+.tabel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.card-header {
+  justify-content: space-between;
+  height: 4em;
+}
+.card-header h6 {
+  font-size: 1em;
+}
+.header-td2 {
+  min-width: 120px;
+}
+.header-td3 {
+  width: 100%;
+  min-width: 324px;
+}
+.header-td4 {
+  min-width: 160px;
+}
+
+@media (max-width: 990px) {
+  .tabel-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* BarInfo */
+.box-container {
+  flex-wrap: wrap;
+  gap: 16px;
+  min-width: 100% !important;
+  margin-bottom: 20px;
+}
+.box-container .container {
+  background-color: var(--sidebar-color);
+  padding: 20px 30px;
+  border-left: 5px solid var(--color-thames);
+  border-radius: 6px;
+  align-items: flex-start;
+  width: 100%;
+  flex-direction: column;
+}
+.container h5 {
+  color: var(--color-thames);
+  text-transform: uppercase;
+}
+.container .box-desk {
+  width: 100%;
+  justify-content: space-between;
+}
+.container .box-desk .task {
+  gap: 10px;
+}
+.container .box-desk span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.container .box-desk .box-icon {
+  color: var(--icon-color);
+  padding: 10px;
+  font-size: 40px;
+  margin-left: 20px;
+}
+@media (min-width: 756px) {
+  .container.flex.shadow {
+    max-width: calc(50% - 8px);
+  }
+  .chart-data {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .container-chart:first-child {
+    width: calc(100% - 20rem);
+  }
+  .container-chart:last-child {
+    width: 20rem;
+  }
+}
+@media (min-width: 1378px) {
+  .container.flex.shadow {
+    max-width: calc((100% / 3) - 12px);
+  }
+}
+@media (max-width: 404px) {
+  .container.flex.shadow {
+    min-width: 340px !important;
+  }
+  .container .box-desk {
+    min-width: 292px;
+  }
+}
+@media (max-width: 368px) {
+  .container.flex.shadow {
+    min-width: auto !important;
+  }
+  .container.flex.shadow h5 {
+    font-size: 10px;
+  }
+  .container :where(.box-desk > *, .result) {
+    font-size: 18px !important;
+  }
+  .container i {
+    font-size: 30px !important;
+  }
+  .container .box-desk {
+    min-width: 227px;
+  }
+}
+@media (max-width: 304px) {
+  .container.flex.shadow {
+    min-width: auto !important;
+  }
+  .container :where(.box-desk > *, .result) {
+    font-size: 10px !important;
+  }
+  .container i {
+    font-size: 25px !important;
+  }
+  .container .box-desk {
+    min-width: auto;
+  }
+}

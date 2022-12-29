@@ -13,9 +13,9 @@ if (isset($_GET['url'])){
         $title = "Aktifitas";
         break;
 
-        case 'notifications': $index = 'layout/Notif.php';
-        $notifications = "activeBtn";
-        $title = "Notifications";
+        case 'savings': $index = 'layout/Savings.php';
+        $savings = "activeBtn";
+        $title = "savings";
         break;
 
         case 'analytics': $index = 'layout/Analytics.php';
@@ -44,6 +44,11 @@ if (isset($_GET['url'])){
         case 'wallets': $index = 'pages/addBalance.php';
         $wallets = "activeBtn";
         $title = "Add balance";
+        break;
+
+        case 'spendsaving': $index = 'pages/spendsaving.php';
+        $spendsaving = "activeBtn";
+        $title = "Spending activity";
         break;
     }
 } else {

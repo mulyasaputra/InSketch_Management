@@ -2,6 +2,10 @@
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 require 'logic/function.php';
+if (!isset($_SESSION["login"])){
+  header("Location: admin.php");
+  exit;
+}
 // Define a default page size/format by array - page will be 190mm wide x 236mm height
 $mpdf = new \Mpdf\Mpdf(['format' => [210, 300]]);
 

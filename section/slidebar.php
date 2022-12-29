@@ -37,10 +37,10 @@
           </a>
         </li>
 
-        <li class="nav-link <?php if (isset($notifications)) echo $notifications; ?>">
-          <a href="?url=notifications">
-            <i class="bx bx-bell icon"></i>
-            <span class="text nav-text">Notifications</span>
+        <li class="nav-link <?php if (isset($savings)) echo $savings; ?>">
+          <a href="?url=savings&th=<?= $year; ?>">
+          <i class='bx bx-shield-alt-2 icon'></i>
+            <span class="text nav-text">Savings</span>
           </a>
         </li>
 

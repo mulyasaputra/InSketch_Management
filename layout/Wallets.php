@@ -1,6 +1,6 @@
 <?php 
 // SELECT * FROM table WHERE x=x AND y=y AND z=z
-$resultWallet = query("SELECT * FROM finance WHERE user = '$userActive' ORDER BY finance . date ASC");
+$resultWallet = query("SELECT * FROM finance WHERE user = '$userActive' AND MONTH(date) = '$month' ORDER BY finance . date DESC");
 
 if(isset($_POST["inputMoney"])){
   if(inputMoney($_POST) > 0 ){
@@ -14,7 +14,7 @@ $awal  = date_create($nextyear.'-01-01');
 $akhir = date_create();
 $diff  = date_diff( $awal, $akhir );
 ?>
-<div class="text">Wallets Sidebar</div>
+<div class="text">Center Banking</div>
 
 <!-- METADATA SECTION -->
 <link rel="stylesheet" href="css/wallets.css" />

@@ -24,10 +24,10 @@
           </a>
         </li>
 
-        <li class="nav-link2 <?php if (isset($analytics)) echo $analytics; ?>">
-          <a href="?url=analytics">
-            <i class="bx bx-pie-chart-alt icon"></i>
-            <span class="text nav-text">Analytics</span>
+        <li class="nav-link2 <?php if (isset($savings)) echo $savings; ?>">
+          <a href="?url=savings&th=<?= $year; ?>">
+            <i class='bx bx-shield-alt-2 icon'></i>
+            <span class="text nav-text">Savings</span>
           </a>
         </li>
 

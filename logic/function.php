@@ -28,16 +28,11 @@ function SUM($QdataTabel){
   }
 
 // Section Hapus Data
-function delete($id){
+function delete($id, $table){
     global $conn;
-    mysqli_query($conn, "DELETE FROM expenditure WHERE id = $id");
+    mysqli_query($conn, "DELETE FROM $table WHERE id = $id");
     return mysqli_affected_rows($conn);
-}
-function remove($remove){
-    global $conn;
-    mysqli_query($conn, "DELETE FROM finance WHERE id = $remove");
-    return mysqli_affected_rows($conn);
-}
+};
 function deletUser(){
     global $conn;
     global $userActive;
@@ -111,6 +106,19 @@ function inputMoney($data){
     mysqli_query($conn, "INSERT INTO finance VALUE('', '$user', '$activity', '$date', '$money')");
     return mysqli_affected_rows($conn);
 
+}
+
+// Section add finance
+function spendsaving($data){
+    global $conn;
+    global $userActive;
+    $money = preg_replace("/[^0-9 ]/", "", $_POST["nominal"]);
+    $user = $userActive;
+    $date = htmlspecialchars($_POST["date"]);
+
+
+    mysqli_query($conn, "INSERT INTO savings_out VALUE('', '$user', '$money', '$date')");
+    return mysqli_affected_rows($conn);
 }
 
 // Section Update Data Tabel

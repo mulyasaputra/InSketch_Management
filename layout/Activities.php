@@ -26,7 +26,7 @@ if ($resultDF == false){
 }
 ?>
 <!-- Html Section -->
-<div class="text">Aktifitas Bulan <?= $month; ?></div>
+<div class="text"><?= $month; ?> Activity</div>
 
 <!-- Data script start -->
 <link
