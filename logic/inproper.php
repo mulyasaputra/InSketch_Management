@@ -25,7 +25,7 @@ if ($resultDF == false){
 }
 
 // Logic Wallet
-$resultWallet = query("SELECT * FROM finance WHERE user = '$userActive' ORDER BY finance . date ASC");
+$resultWallet = query("SELECT * FROM finance WHERE user = '$userActive' AND MONTH(date) = '$month' AND YEAR(date) = '$year' ORDER BY finance . date ASC");
 
 if(isset($_POST["inputMoney"])){
   if(inputMoney($_POST) > 0 ){

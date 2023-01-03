@@ -1,6 +1,23 @@
 <?php 
-// SELECT * FROM table WHERE x=x AND y=y AND z=z
-$resultWallet = query("SELECT * FROM finance WHERE user = '$userActive' AND MONTH(date) = '$month' ORDER BY finance . date DESC");
+$resultDF = query("SELECT * FROM finance WHERE user = '$userActive'");
+if ($resultDF == false){
+  return false;
+} else {
+  foreach($resultDF as $row){
+    $years[]= substr($row["date"],0,4);
+  }
+  rsort($years);
+  $duplicates = array_unique($years);
+}
+$bulan = date("F");
+if(isset($_POST['submit'])){
+  if(!empty($_POST['mounth']) and !empty($_POST['year'])) {
+      $month = $_POST['mounth'];
+      $year = $_POST['year'];
+      $bulan = date("F", mktime(0, 0, 0, $_POST['mounth'], 10));
+  }
+}
+$resultWallet = query("SELECT * FROM finance WHERE user = '$userActive' AND MONTH(date) = '$month' AND YEAR(date) = '$year'  ORDER BY finance . date DESC");
 $nextyear  = date('Y', strtotime("+1 year"));
 $awal  = date_create($nextyear.'-01-01');
 $akhir = date_create();
@@ -49,9 +66,39 @@ $diff  = date_diff( $awal, $akhir );
   <div class="tabLeft"><h3><?= $diff->days; ?></h3></div>
   <div class="recent"><div class="vanilla-calendar"></div></div>
 </div>
-<a href="?p=wallets">
-  <button class="show_alert btn btn-primary">Add balance</button>
-</a>
+
+<div class="container-nav flex">
+  <form action="" method="post">
+    <div class="short flex">
+      <select id="year" name="year">
+        <option value="<?= $year; ?>"><?= $year; ?></option>
+        <?php foreach ($duplicates as $value) : ?>
+        <option value="<?= $value; ?>"><?= $value; ?></option>
+        <?php endforeach ?>
+      </select>
+      <select id="mounth" name="mounth">
+        <option value="<?= $month; ?>"><?= $bulan ?></option>
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+      <button type="submit" name="submit" class="btn btn-primary">GO</button>
+    </div>
+  </form>
+  <a href="?p=wallets">
+    <button class="show_alert btn btn-primary">Add balance</button>
+  </a>
+</div>
+
 <section id="history">
 <!-- DataTales history -->
 <div class="card shadow mb-4">
@@ -95,3 +142,6 @@ $diff  = date_diff( $awal, $akhir );
     calendar.init();
   });
 </script>
+<!-- Custom scripts for all pages-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="logic/activities.js"></script>

@@ -69,7 +69,7 @@ $chart_line = [post_earnings('January'), post_earnings('February'), post_earning
       <h6 class="m-0 font-weight-bold text-primary">Total Expenses(Month)</h6>
     </div>
     <div class="doughnut">
-      <h3 class="years-balance">2022</h3>
+      <h3 class="years-balance"><?= date("Y");; ?></h3>
       <canvas id="chartDoughnut"></canvas>
     </div>
   </div>

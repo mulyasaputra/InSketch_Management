@@ -117,7 +117,7 @@ $spendingResult = resultData($userActive, $th, "savings_out");
                                 <td style="vertical-align: middle;"><?= $i; ?></td>
                                 <td style="vertical-align: middle;"><?= $row["date"]; ?></td>
                                 <td style="vertical-align: middle;">Rp. <?= toCurrency($row["nominal"],2); ?></td>
-                                <td style="text-align: center; padding: 0;height: 50px;">
+                                <td style="text-align: center;">
                                   <a href="pages/delete.php?spend=<?= $row["id"]; ?>">
                                     <button class="btn btn-danger delete"><i class="bx bx-trash"></i></button>
                                   </a>

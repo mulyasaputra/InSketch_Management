@@ -17,13 +17,17 @@ $bulan = date('m', strtotime($_GET["F"]. "1"));
 $tanggal = $tahun.'-'.$bulan.'-'.date('t', strtotime($_GET["F"]. "1"));
 $jumlahPengeluaran = SUM("SELECT SUM(nominal) AS total FROM expenditure WHERE user = '$userActive' AND MONTH(date) = '$bulan' AND YEAR(date) = '$tahun'");
 $jumlahSaldo = SUM("SELECT SUM(balance) AS total FROM finance WHERE user = '$userActive' AND MONTH(date) = '$bulan' AND YEAR(date) = '$tahun'");
-$beforDate = [date("m", strtotime("-1 month", strtotime($_GET["F"]  . "1"))), date("Y", strtotime("-1 month", strtotime($_GET["F"]  . "1")))];
+$beforDate = [date("m", strtotime("-1 month", strtotime($_GET["F"]  . "1"))), $_GET["Y"]];
+if ($bulan == 01){
+  $beforDate = [date("m", strtotime("-1 month", strtotime($_GET["F"]  . "1"))), $_GET["Y"] - 1];
+}
 $record = mysqli_query($conn, "SELECT * FROM record WHERE user = '$userActive' AND MONTH(date) = '$beforDate[0]' AND YEAR(date) = '$beforDate[1]'");
 $a = mysqli_fetch_assoc($record);
 $total = $jumlahSaldo['total']-$jumlahPengeluaran['total'];
 if ($a){
   $total = $jumlahSaldo['total']+$a['blance']-$jumlahPengeluaran['total'];
 }
+
 
 $jumlahPengeluaran = mysqli_query($conn, "SELECT * FROM record WHERE user = '$userActive' AND MONTH(date) = '$bulan' AND YEAR(date) = '$tahun'");
 if (!mysqli_fetch_assoc($jumlahPengeluaran)){

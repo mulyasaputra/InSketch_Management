@@ -13,7 +13,7 @@ foreach ($month as $value) {
   $thisYear[] = post($value, $year);
 }
 foreach ($month as $value) {
-  $year = date('Y', strtotime("1 year"));
+  $year = date('Y', strtotime("-1 year"));
   $lastYear[] = post($value, $year);
 }
 $thisYear = json_encode($thisYear); $lastYear = json_encode($lastYear); $months = json_encode($month);

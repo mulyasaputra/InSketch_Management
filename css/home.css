@@ -1,0 +1,148 @@
+/* ---------ROOT--------- */
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #707070;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+section {
+  padding: 0 6rem;
+}
+
+/* --------NavBar-------- */
+
+nav.navbar {
+  justify-content: space-between;
+  padding: 20px 6rem;
+  background-color: rgba(240, 255, 255, 0.767);
+  text-transform: uppercase;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+nav.navbar * {
+  text-decoration: none;
+  color: #707070;
+}
+nav.navbar .logo {
+  font-weight: bold;
+  font-size: 2.4em;
+  text-transform: capitalize;
+  font-family: "Fugaz One", cursive;
+}
+nav.navbar .menu ul {
+  list-style: none;
+  gap: 1em;
+}
+nav.navbar .menu ul a {
+  position: relative;
+}
+nav.navbar .menu ul li a::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: #707070;
+  bottom: 0;
+  transition: all 0.2s ease-in-out;
+}
+nav.navbar .menu ul li:hover a::before {
+  width: 100%;
+}
+nav.navbar .button {
+  gap: 1.5em;
+}
+nav.navbar .button a.get {
+  background-color: #707070;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 10em;
+}
+
+/* ------Dashboard------- */
+
+#dashboard {
+  background-color: #7fffd4;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3em;
+  padding: 0 11em;
+}
+#dashboard .info h2 {
+  line-height: 1.2em;
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+#dashboard .info p {
+  letter-spacing: 1px;
+}
+#dashboard .info .get {
+  background-color: #707070;
+  border: 2px solid #707070;
+  padding: 10px 20px;
+  border-radius: 10em;
+  margin-top: 3em;
+}
+#dashboard .info .get a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#dashboard .info .get:hover {
+  background-color: transparent;
+}
+#dashboard .info .get:hover a {
+  color: #707070;
+}
+
+#dashboard .img {
+  height: 100%;
+  justify-content: flex-end;
+}
+#dashboard .img img {
+  width: 80%;
+}
+
+/* ------Brand------- */
+
+/* #brand {
+  background-color: #fff;
+  height: 10em;
+} */
+
+/* Responsife */
+@media (max-width: 1258px) {
+  #dashboard {
+    padding: 0 5em;
+    gap: 0;
+  }
+}
+@media (max-width: 838px) {
+  #dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 1002px;
+    gap: 3em;
+  }
+  #dashboard .info {
+    order: 2;
+    text-align: center;
+  }
+  #dashboard .img {
+    height: fit-content;
+    margin-top: 9em;
+    order: 1;
+    justify-content: center;
+  }
+}
