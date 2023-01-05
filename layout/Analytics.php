@@ -8,15 +8,23 @@ function post($month, $year){
     query("SELECT * FROM expenditure WHERE user = '$userActive' AND month = '$month' AND year = '$year'"); $a = $result->num_rows;
     return$a; 
 }
+function earnings($month, $year){
+  global $userActive;
+  global $conn;
+  $result = SUM("SELECT SUM(nominal) AS total FROM expenditure WHERE user = '$userActive' AND month = '$month' AND year = '$year'");
+  return $result['total']; 
+}
 foreach ($month as $value) {
   $year = date("Y");
+  $lyear = date('Y', strtotime("-1 year"));
   $thisYear[] = post($value, $year);
+  $lastYear[] = post($value, $lyear);
+  $thisEarnings[] = earnings($value, $year);
+  $lasEarnings[] = earnings($value, $lyear);
 }
-foreach ($month as $value) {
-  $year = date('Y', strtotime("-1 year"));
-  $lastYear[] = post($value, $year);
-}
-$thisYear = json_encode($thisYear); $lastYear = json_encode($lastYear); $months = json_encode($month);
+$months = json_encode($month);
+$thisYear = json_encode($thisYear); $lastYear = json_encode($lastYear);
+$thisEarnings = json_encode($thisEarnings); $lasEarnings = json_encode($lasEarnings);
 ?>
 
 
@@ -24,47 +32,43 @@ $thisYear = json_encode($thisYear); $lastYear = json_encode($lastYear); $months 
 <style>
   #lineScale{
     border-radius: 6px;
+    width: 100%;
+    height: 24em;
+  }
+  #main{
+    width: 100%;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 1108px) {
+    #main{
+      grid-template-columns: 1fr;
+    }
+    #lineScale{
+      height: 35em;
+    }
   }
 </style>
 <!-- HTML Section -->
 <div class="text">Analytics Sidebar</div>
-<section id="lineScale" class="shadow">
-  <canvas id="chartDoughnut"></canvas>
+<section id="main">
+  <div id="lineScale" class="shadow">
+    <canvas id="expensesValue"></canvas>
+  </div>
+  <div id="lineScale" class="shadow">
+    <canvas id="amountValue"></canvas>
+  </div>
 </section>
 
 <!-- Script Section -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+<!-- Jumlah pengeluaran -->
 <script>
-  const labels = <?= $months; ?>;
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        label: new Date().getFullYear(),
-        backgroundColor: "rgb(249, 19, 147)",
-        borderColor: "rgb(249, 19, 147)",
-        data: <?= $thisYear; ?>,
-      },
-      {
-        label: Tahun = new Date().getFullYear() - 1,
-        backgroundColor: "rgb(148, 0, 211)",
-        borderColor: "rgb(148, 0, 211)",
-        data: <?= $lastYear; ?>,
-      },
-    ],
-  };
-  const config = {
-    type: "line",
-    data,
-    options: {
-      scales: {
-        x: {
-          grid: {
-            borderColor: "red",
-          },
-        },
-      },
-    },
-  };
-  const myChart = new Chart(document.getElementById("chartDoughnut"), config);
+const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+lastYear = <?= $lastYear; ?>,
+thisYear = <?= $thisYear; ?>,
+thisEarnings = <?= $thisEarnings; ?>,
+lasEarnings = <?= $lasEarnings; ?>;
 </script>
+<script src="logic/analytics.js"></script>

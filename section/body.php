@@ -1,7 +1,7 @@
 <body id="thames">
   <?= include 'section/slidebar.php'; ?>
   <!-- Main View -->
-  <section class="home">
+  <section class="home close">
     <?php include $index; ?>
     <div class="spasi" style="height: 15px"></div>
   </section>

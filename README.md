@@ -16,17 +16,10 @@ Gunakan perintah `git clone` untuk menjapatkan repository
 git clone https://github.com/mulyasaputra/InSketch_Management.git
 ```
 
-#### fitur version 3.0
+#### version 3.3
 
-- Manajemen keuangan Kas harian
-- Manajemen keuangan tabungan
-- Tambah otomatik uang yang keluar dari tabungan ke uang kas
-- Print ke PDF laporan bulanan
-- Cutoff bulanan manual
-- Memfilter pemasukan berdasar bulan
-- Memfilter pengeluaran berdasar bulan & tahun
-- Pilihan tema Gelap/Terang
-- Responsive di menu tambah data
+- Perbaikan pada data tahun
+- Menambah menu di Analisis keuangan
 
 #### Catatan
 

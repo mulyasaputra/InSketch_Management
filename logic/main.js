@@ -1,4 +1,3 @@
-const mediaQuery = window.matchMedia("(min-width: 1703px)");
 let body = document.querySelector("body"),
   sidebar = body.querySelector("nav"),
   homes = body.querySelector(".home"),
@@ -15,9 +14,6 @@ toggle.addEventListener("click", () => {
 searchBtn.addEventListener("click", () => {
   sidebar.classList.remove("close");
 });
-if (mediaQuery.matches) {
-  sidebar.classList.remove("close");
-}
 // Thames Dark Mode
 let thames = localStorage.getItem("thames"),
   mode = localStorage.getItem("mode");

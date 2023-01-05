@@ -90,6 +90,7 @@ $chart_line = [post_earnings('January'), post_earnings('February'), post_earning
   <div class="addmony shadow">
     <div class="card-header flex"><h6 class="m-0 font-weight-bold text-primary">Add Balance (<?= date("F  Y"); ?>)</h6></div>
     <div class="contains">
+      <?php $resultWallet = query("SELECT * FROM finance WHERE user = '$userActive' AND MONTH(date) = date('m') AND YEAR(date) = '$year'  ORDER BY finance . date DESC"); ?>
       <?php $i = 1; ?>
       <?php foreach($resultWallet as $row) : ?>
         <?php $balance = number_format($row["balance"],0,',','.'); $activity = $row["activity"]; ?>
