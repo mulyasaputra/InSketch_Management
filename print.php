@@ -7,7 +7,13 @@ if (!isset($_SESSION["login"])){
   exit;
 }
 // Define a default page size/format by array - page will be 190mm wide x 236mm height
-$mpdf = new \Mpdf\Mpdf(['format' => [210, 300]]);
+$mpdf = new \Mpdf\Mpdf([
+  'format' => [215, 330],
+  'margin_top' => 10,
+  'margin_left' => 20,
+  'margin_right' => 10,
+  'margin_bottom' => 0,
+]);
 
 
 // Function tabel print
@@ -19,6 +25,7 @@ $userActive = $_SESSION["login"];
 $year = $_GET["Y"];
 $month = $_GET["F"];
 $tanggal = [date("m", strtotime("-1 month", strtotime($month . "1"))), date("Y", strtotime("-1 month", strtotime($month . "1"))), date("F", strtotime("-1 month", strtotime($month . "1")))];
+if ((int)date("m", strtotime($month)) > 2){$tanggal[1] = $year;};
 $moneyDate = date('m',strtotime($month. "1"));
 $income = 0; $include = 0;
 $record = query("SELECT * FROM record WHERE user = '$userActive' AND MONTH(date) = '$tanggal[0]' AND YEAR(date) = '$tanggal[1]'")[0];
@@ -29,18 +36,16 @@ if($month == "all"){
   $moneys = query("SELECT * FROM finance WHERE user = '$userActive' AND MONTH(date) = '$moneyDate' AND YEAR(date) = '$year' ORDER BY finance . date ASC");
   $result = query("SELECT * FROM expenditure WHERE user = '$userActive' AND month = '$month' AND year = '$year' ORDER BY expenditure . date ASC");
 }
-
-// $result = query("SELECT * FROM expenditure WHERE user = '$userActive' AND month = '$month' AND year = '$year' ORDER BY expenditure . date ASC");
-// $moneys = query("SELECT * FROM finance WHERE user = '$userActive' AND MONTH(date) = '$moneyDate' AND YEAR(date) = '$year' ORDER BY finance . date ASC");
 foreach($result as $row){
   $income += $row["nominal"];
 }
 foreach($moneys as $row){
   $include += $row["balance"];
 }
+
+
 // End Function tabel print
 
-$mpdf = new \Mpdf\Mpdf();
 $mpdf->SetTitle('Financial Report');
 $mpdf->SetSubject('Be an honest and trustworthy treasurer');
 $mpdf->SetKeywords('Financial Report, finance,  Cash book');
@@ -56,7 +61,7 @@ h1 {
 body table {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 2px;
 }
 table tbody :where(.in, .out) {
   text-align: right;
@@ -103,7 +108,7 @@ $html .= '<table>
   <tbody>
     <tr style="line-height: 1.5rem;">
       <td></td>
-      <td colspan="2" valign="top" align="left">Sisa saldo bulan '.$tanggal[2].'<br />';
+      <td colspan="2" valign="top" align="left">Sisa saldo bulan '.$tanggal[2].' '.$tanggal[1].'<br />';
         foreach($moneys as $row){
             $html .= $row["activity"].'<br />';
         };
