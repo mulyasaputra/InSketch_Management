@@ -67,7 +67,7 @@ if ($resultDF == false){
     <a href="section/returnRecord.php?F=<?= $month;?>&Y=<?= $year; ?>"
       ><button class="btn btn-warning flex"><i class='bx bx-lock-alt'></i> Cut off</button></a
     >
-    <a target="_blank" href="print.php?F=<?= $month;?>&Y=<?= $year; ?>"
+    <a target="_blank" href="preview.php?F=<?= $month;?>&Y=<?= $year; ?>"
       ><button class="btn btn-success flex"><i class="bx bx-printer"></i> Print</button></a
     >
     <a href="?p=activities&a=add"

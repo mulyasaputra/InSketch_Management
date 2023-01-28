@@ -9,10 +9,10 @@ if (isset($_SESSION["login"])){
   exit;
 }
 // Login
+$error = false;
 if(isset($_POST["login"])){
   $lusername = $_POST["username"];
   $lpassword = $_POST["password"];
-
   $loginresult = mysqli_query($conn, "SELECT * FROM users WHERE username = '$lusername'");
   if(mysqli_num_rows($loginresult) === 1){
     $row = mysqli_fetch_assoc($loginresult);
@@ -27,9 +27,7 @@ if(isset($_POST["login"])){
   }
 
   $error = true;
-
 }
-
 // Registrasi
 if(isset($_POST["register"])){
   if(registrasi($_POST) > 0 ){
@@ -150,7 +148,7 @@ if(isset($_POST["register"])){
         </div>
       </div>
     </div>
-    <?php if($error == true) : ?>
+    <?php if($error === true) : ?>
       <div id="popup">
         <p>Username & Password salah</p>
         <div class="progres"></div>

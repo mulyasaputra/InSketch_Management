@@ -17,10 +17,6 @@ $mpdf = new \Mpdf\Mpdf([
 
 
 // Function tabel print
-if (!isset($_SESSION["login"])){
-  header("Location: admin.php");
-  exit;
-}
 $userActive = $_SESSION["login"];
 $year = $_GET["Y"];
 $month = $_GET["F"];

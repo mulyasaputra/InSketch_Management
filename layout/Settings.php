@@ -21,16 +21,6 @@ if(isset($_POST["deletUser"])){
     document.location.href = '?url=settings'</script>";
   }
 }
-
-// if(isset($_POST["cekPassword"])){
-//   $password = $_POST['password'];
-//   if(password_verify($password, $user["password"])){
-//     echo "<script>document.location.href = '?url=settings';</script>";
-//   } else {
-//     echo "<script> alert('Password Berbeda');
-//     document.location.href = '?url=settings'</script>";
-//   }
-// }
 ?>
 
 <div class="text">Settings Sidebar</div>
@@ -143,24 +133,29 @@ if(isset($_POST["deletUser"])){
       <button class="btn btn-primary">2022</button>
       <button class="btn btn-primary">2023</button>
     </div>
-    <div class="month">
-      <p>Select the month you want to delete</p>
-      <button class="btn btn-primary">January</button>
-      <button class="btn btn-primary">February</button>
-      <button class="btn btn-primary">March</button>
-      <button class="btn btn-primary">April</button>
-      <button class="btn btn-primary">May</button>
-      <button class="btn btn-primary">June</button>
-      <br />
-      <button class="btn btn-primary">July</button>
-      <button class="btn btn-primary">August</button>
-      <button class="btn btn-primary">September</button>
-      <button class="btn btn-primary">October</button>
-      <button class="btn btn-primary">November</button>
-      <button class="btn btn-primary">December</button>
+    <div class="pdf-menu">
+      <p>Seting file output from PDF</p>
+      <form action="#" method="get">
+        <div class="input-form">
+          <label for="size">Paper size [Milimeter]</label>
+          <div class="paper-size">
+            <input type="text" name="size-width" id="size-width"  placeholder="Width">
+            <input type="text" name="size-height" id="size-height" placeholder="Height">
+          </div>
+        </div>
+        <div class="input-form">
+          <label for="Margin">Margin [Top, Right, Bottom, Left]</label>
+          <div class="margin-size">
+            <input type="text" name="margin-top" id="margin-top" placeholder="Top">
+            <input type="text" name="margin-right" id="margin-right" placeholder="Right">
+            <input type="text" name="margin-bottom" id="margin-bottom" placeholder="Bottom">
+            <input type="text" name="margin-left" id="margin-left" placeholder="Left">
+          </div>
+        </div>
+        <button class="btn btn-success" type="submit">Save</button>
+      </form>
     </div>
   </div>
-
   <div class="cekPassword">
     <form action="" method="POST">
       <label for="username">Enter password to confirm</label>

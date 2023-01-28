@@ -527,10 +527,13 @@ tbody tr td:first-child {
   right: 0;
   left: 0;
   z-index: 999;
-  margin: 0;
   padding: 0;
   list-style: none;
   background-color: #4e73df;
+  height: 12em;
+  overflow-y: scroll;
+  border-radius: 6px;
+  margin: 5px 0 0;
 }
 .select-options li {
   margin: 0;

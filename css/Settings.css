@@ -190,7 +190,7 @@ form button {
 .years {
   margin-bottom: 13px;
 }
-:is(.month, .years) button {
+.years button {
   width: 8rem;
   margin: 5px 2px;
 }
@@ -218,6 +218,20 @@ form button {
   display: block;
 }
 
+/* PDF Setting */
+.paper-size,
+.margin-size {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  gap: 10px;
+}
+:is(.paper-size, .margin-size) input {
+  padding: 10px;
+}
+.input-form label {
+  margin: 20px 0 10px;
+  display: inline-block;
+}
 /*======== responsif section ========*/
 @media (max-width: 575.98px) {
 }
@@ -252,7 +266,7 @@ form button {
   .years {
     margin-bottom: 13px;
   }
-  :is(.month, .years) button {
+  .years button {
     width: 8rem;
     margin: 5px 2px;
   }
@@ -280,10 +294,6 @@ form button {
   .years {
     margin-bottom: 13px;
   }
-  .month button {
-    width: calc(100% / 3 - 7px);
-    margin: 5px 2px;
-  }
   .years button {
     width: calc(100% / 2 - 6.5px);
     margin: 5px 2px;
@@ -309,7 +319,7 @@ form button {
     display: none;
   }
   /* ------[SS Delet Data]------ */
-  :is(.month, .years) button {
+  .years button {
     width: calc(100% / 2 - 6.5px);
     margin: 5px 2px;
   }

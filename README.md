@@ -10,25 +10,27 @@
 
 ## Mengunduh Repository
 
-Gunakan perintah `git clone` untuk menjapatkan repository
+Gunakan perintah `git clone` untuk mendapatkan repository
 
 ```
 git clone https://github.com/mulyasaputra/InSketch_Management.git
 ```
 
-#### version 3.4.2
+#### version 3.5
 
 - Suport PHP versi 7 keatas
 - Perbaikan Print ke pdf untuk PHP v7
 - Perbaikan data tahun pada Print ke pdf
-- Menambah menu di Analisis keuangan
 - Menambah menu baru untuk penghitungan jumlah tabungan
 - Perbaikan auto input dari menu pengeluaran ke menu Tabungan
 - bug pada Home direktori
+- Menambah fitur Preview PDF
+- Menambah fitur Print to XLSX (Save file to excel)
+- Perbaikan dropdown scrolling
 
 #### Catatan
 
-- Kode ini belum di optimalisasi, web ini masih ditulis menggunakan kodingan `Barbar` Silahkan modifikasi ulang agal lebih optimal
+- Kode ini belum di optimalisasi, web ini masih ditulis menggunakan kodingan `Barbar` Silahkan modifikasi ulang agar lebih optimal
 - Jika ingin menggunakan `PHP versi 7` makan pindahkan seluruh isi direktori `Mpdf_PHP_7` ke direktori Root
 - Jika ingin menggunakan `PHP versi 8` makan pindahkan seluruh isi direktori `Mpdf_PHP_8` ke direktori Root
 
